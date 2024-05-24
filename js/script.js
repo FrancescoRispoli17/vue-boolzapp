@@ -22,7 +22,7 @@ const { createApp } = Vue
                   },
                   {
                       date: '10/01/2020 16:15:22',
-                      message: 'Tutto fatto!tutto p',
+                      message: 'Tutto fatto!',
                       status: 'received'
                   }
               ], lastmessage:'',
@@ -166,8 +166,8 @@ const { createApp } = Vue
                   }
               ],
           }
-      ]
-             
+      ],
+        currentIndex:0,
       }
     },
     methods:{
@@ -196,6 +196,10 @@ const { createApp } = Vue
         //   }
         // this.contacts[idxx].lastmessage='aaaaaa'
         // this.contacts[idxx].lastmessage=lastsmsarray;
+      },
+      openChat(idx){
+        this.currentIndex=idx;
+        console.log(this.currentIndex)
       }
     }
   }).mount('#app')

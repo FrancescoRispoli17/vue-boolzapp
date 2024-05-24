@@ -36,62 +36,13 @@
                 </div>
                 
                 <div class="scroll bg-light-grey">
-                    <div class="p-photo flex" v-for="(contact, index) in contacts">
+                    <div class="p-photo flex" v-for="(contact, index) in contacts" @click="openChat(index)">
                         <figure><img :src="contact.avatar" alt="contact.name"></figure>
                         <div class=" m-left-1 m-top-0_5">
                             <p>{{contact.name}}</p>
                             <p id="last-sign-in">{{contact.messages[contact.messages.length-1].message}}</p>
                         </div>
-                    </div>
-                    <!-- <div class="p-photo flex">
-                        <figure><img src="./img/avatar_2.jpg" alt="michele"></figure>
-                        <div class=" m-left-1 m-top-0_5">
-                            <p>Michele</p>
-                            <p id="last-sign-in">Lorem ipsum sit alet</p>
-                        </div>
-                    </div>
-                    <div class="p-photo flex">
-                        <figure><img src="./img/avatar_3.jpg" alt="michele"></figure>
-                        <div class=" m-left-1 m-top-0_5">
-                            <p>Michele</p>
-                            <p id="last-sign-in">Lorem ipsum sit alet</p>
-                        </div>
-                    </div>
-                    <div class="p-photo flex">
-                        <figure><img src="./img/avatar_4.jpg" alt="michele"></figure>
-                        <div class=" m-left-1 m-top-0_5">
-                            <p>Michele</p>
-                            <p id="last-sign-in">Lorem ipsum sit alet</p>
-                        </div>
-                    </div>
-                    <div class="p-photo flex">
-                        <figure><img src="./img/avatar_5.jpg" alt="michele"></figure>
-                        <div class=" m-left-1 m-top-0_5">
-                            <p>Michele</p>
-                            <p id="last-sign-in">Lorem ipsum sit alet</p>
-                        </div>
-                    </div>
-                    <div class="p-photo flex">
-                        <figure><img src="./img/avatar_6.jpg" alt="michele"></figure>
-                        <div class=" m-left-1 m-top-0_5">
-                            <p>Michele</p>
-                            <p id="last-sign-in">Lorem ipsum sit alet</p>
-                        </div>
-                    </div>
-                    <div class="p-photo flex">
-                        <figure><img src="./img/avatar_7.jpg" alt="michele"></figure>
-                        <div class=" m-left-1 m-top-0_5">
-                            <p>Michele</p>
-                            <p id="last-sign-in">Lorem ipsum sit alet</p>
-                        </div>
-                    </div>
-                    <div class="p-photo flex">
-                        <figure><img src="./img/avatar_8.jpg" alt="michele"></figure>
-                        <div class=" m-left-1 m-top-0_5">
-                            <p>Michele</p>
-                            <p id="last-sign-in">Lorem ipsum sit alet</p>
-                        </div>
-                    </div> -->
+                    </div>                   
                 </div>
             </div>
             <div class="col" >
@@ -110,22 +61,11 @@
                     </div>
                 </header>
                 <div id="message-text">
-                    <div class="message me">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, minima vel blanditiis est omnis et sint exercitationem culpa odio recusandae, veritatis cum eos aperiam odit repellat, perferendis eveniet animi consectetur?</p>
+                    <div class="message" v-for="message in contacts[currentIndex].messages" :class="{me:message.status==='sent'}">
+                        <p>{{message.message}}</p>
                         <i class="fa fa-angle-down grey"></i>
                         <span class="ora">16:30</span>
                     </div>
-                    <div class="message">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat distinctio quo ipsa autem? Dignissimos, sed autem cumque eum id architecto perspiciatis veritatis. Aliquam atque libero delectus. Recusandae omnis commodi culpa.</p>
-                        <i class="fa fa-angle-down grey"></i>
-                        <span class="ora">16:40</span>
-                    </div>
-                    <div class="message me">
-                        <p>cusandae, veritatis cum eos aperiam odit repellat, perferendis eveniet animi consectetur?</p>
-                        <i class="fa fa-angle-down grey"></i>
-                        <span class="ora">16:30</span>
-                    </div>
-
                 </div>
                 <div class="bg-panna p-1 flex grey align-center" id="write"> 
                     <i class="fa-regular fa-face-smile mx-1 fs-1 "></i>

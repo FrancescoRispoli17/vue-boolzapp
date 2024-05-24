@@ -85,6 +85,11 @@ figure img{
     position: relative;
     font-size: 15px;
 }
+.fa-angle-down{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 .me{
     background-color: #d4f9bb;
     align-self: flex-end;
@@ -93,8 +98,8 @@ figure img{
     color: rgb(202, 198, 198);
     font-size: 12px;
     position: absolute;
-    right: 5px;
-    bottom: 5px;
+    right: 7px;
+    bottom: 1px;
 }
 
 /*FLEX*/
