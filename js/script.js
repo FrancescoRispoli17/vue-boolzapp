@@ -12,12 +12,12 @@ const { createApp } = Vue
               messages: [
                   {
                       date: '10/01/2020 15:30:55',
-                      message: 'Hai portato a spasso il cane?',
+                      message: '?',
                       status: 'sent'
                   },
                   {
                       date: '10/01/2020 15:50:00',
-                      message: 'Ricordati di stendere i panni',
+                      message: 'Ricordati di stendereaaaaaaaaaaaaaaaaaaaaaaaaaaa i panni',
                       status: 'sent'
                   },
                   {
@@ -168,6 +168,7 @@ const { createApp } = Vue
           }
       ],
         currentIndex:0,
+        newsms:null,
       }
     },
     methods:{
@@ -200,6 +201,27 @@ const { createApp } = Vue
       openChat(idx){
         this.currentIndex=idx;
         console.log(this.currentIndex)
+      },
+      addMessage(){
+        const messageList=this.contacts[this.currentIndex].messages;
+        const sms=this.newsms;
+        if(sms)
+            {
+                const obj={
+                    date:'',
+                    message:sms,
+                    status:'sent'
+                }
+                const obj2={
+                    date:'',
+                    message:'ok',
+                    status:'received'
+                }
+                messageList.push(obj);
+                this.newsms='';
+                setTimeout(()=> { messageList.push(obj2); },"1000");
+            }
       }
+
     }
   }).mount('#app')

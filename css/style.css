@@ -75,15 +75,18 @@ figure img{
     flex-grow: 1;
 }
 .message{
-    max-width: 60%;
-    min-width: 40%;
+    display: inline-block;
+    max-width: 70%;
     border-radius: 15px;
     margin: 1rem 0;
     background-color: white;
-    padding: 1rem;
-    display: flex;
+    padding: 0.8rem;
     position: relative;
     font-size: 15px;
+}
+.message p{
+    margin-right: 1rem;
+    word-wrap: break-word
 }
 .fa-angle-down{
     position: absolute;
@@ -92,7 +95,7 @@ figure img{
 }
 .me{
     background-color: #d4f9bb;
-    align-self: flex-end;
+    float: right;
 }
 .ora{
     color: rgb(202, 198, 198);
@@ -204,6 +207,7 @@ figure img{
     }
     .container{
         width: 70%;
+        max-width: 1700px;
         margin: auto;
         height: 80%;
     }

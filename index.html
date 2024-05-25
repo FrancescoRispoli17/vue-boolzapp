@@ -61,15 +61,18 @@
                     </div>
                 </header>
                 <div id="message-text">
-                    <div class="message" v-for="message in contacts[currentIndex].messages" :class="{me:message.status==='sent'}">
-                        <p>{{message.message}}</p>
-                        <i class="fa fa-angle-down grey"></i>
-                        <span class="ora">16:30</span>
+                    <div v-for="message in contacts[currentIndex].messages" >
+                        <div class="message" :class="{me:message.status==='sent'}">
+                            <p>{{message.message}}</p>
+                            <i class="fa fa-angle-down grey"></i>
+                            <span class="ora">16:30</span>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-panna p-1 flex grey align-center" id="write"> 
                     <i class="fa-regular fa-face-smile mx-1 fs-1 "></i>
-                    <input type="text" placeholder="Scrivi un messaggio" class="grey p-1">
+                    <input type="text" placeholder="Scrivi un messaggio" class="grey p-1" v-model="newsms" @keyup.enter="addMessage">
+                    <i class="fa-regular fa-paper-plane mx-1 fs-1 p-0_5" v-if="newsms" style="border: 2px solid rgb(235, 166, 38);border-radius: 15px;" @click="addMessage"></i>
                     <i class="fa-solid fa-microphone mx-1 fs-1 "></i>
                 </div>
             </div>
