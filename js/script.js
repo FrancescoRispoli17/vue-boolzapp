@@ -169,6 +169,7 @@ const { createApp } = Vue
       ],
         currentIndex:0,
         newsms:null,
+        filtro:null,
       }
     },
     methods:{
@@ -200,7 +201,6 @@ const { createApp } = Vue
       },
       openChat(idx){
         this.currentIndex=idx;
-        console.log(this.currentIndex)
       },
       addMessage(){
         const messageList=this.contacts[this.currentIndex].messages;
@@ -221,7 +221,26 @@ const { createApp } = Vue
                 this.newsms='';
                 setTimeout(()=> { messageList.push(obj2); },"1000");
             }
-      }
+      },
+      search(){
+            const filter=this.filtro.toLowerCase();
+            
+            for(const element in this.contacts){
+                if(!filter)
+                    this.contacts[element].visible=true;
+                for(let i=0;i<filter.length;i++){
+                    if(this.contacts[element].name[i].toLowerCase()!==filter[i]){
+                        this.contacts[element].visible=false;
+                        break;
+                        }
+                        else{
+                            this.contacts[element].visible=true;
+                        }
+                    
+                    }
+                }
+            }
+        }
 
-    }
+    
   }).mount('#app')

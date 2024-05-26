@@ -31,12 +31,12 @@
                 <div class="grey p-0_5 bg-light-grey" id="search-chat">
                     <div class="bg-white p-0_5">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" size="30" class="grey m-left-1">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" size="30" class="grey m-left-1" v-model="filtro" @input="search">
                     </div>
                 </div>
                 
                 <div class="scroll bg-light-grey">
-                    <div class="p-photo flex" v-for="(contact, index) in contacts" @click="openChat(index)">
+                    <div class="p-photo flex" v-for="(contact, index) in contacts" @click="openChat(index)" v-show="contact.visible">
                         <figure><img :src="contact.avatar" alt="contact.name"></figure>
                         <div class=" m-left-1 m-top-0_5">
                             <p>{{contact.name}}</p>
@@ -72,7 +72,7 @@
                 <div class="bg-panna p-1 flex grey align-center" id="write"> 
                     <i class="fa-regular fa-face-smile mx-1 fs-1 "></i>
                     <input type="text" placeholder="Scrivi un messaggio" class="grey p-1" v-model="newsms" @keyup.enter="addMessage">
-                    <i class="fa-regular fa-paper-plane mx-1 fs-1 p-0_5" v-if="newsms" style="border: 2px solid rgb(235, 166, 38);border-radius: 15px;" @click="addMessage"></i>
+                    <i class="fa-regular fa-paper-plane mx-1 fs-1 p-0_5" v-show="newsms" style="border: 2px solid rgb(235, 166, 38);border-radius: 15px;" @click="addMessage"></i>
                     <i class="fa-solid fa-microphone mx-1 fs-1 "></i>
                 </div>
             </div>
