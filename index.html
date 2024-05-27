@@ -37,11 +37,13 @@
                 </div>
                 
                 <div class="scroll bg-light-grey">
-                    <div class="p-photo flex" v-for="(contact, index) in contacts" @click="openChat(index)" v-show="contact.visible">
+                    <div id="contatto" class="p-photo flex" v-for="(contact, index) in contacts" @click="openChat(index)" v-show="contact.visible">
                         <figure><img :src="contact.avatar" alt="contact.name"></figure>
                         <div class=" m-left-1 m-top-0_5">
                             <p>{{contact.name}}</p>
                             <p id="last-sign-in">{{lastMessage(index)}}</p>
+                            <p id="last-sms-hour" v-if="contact.messages[contact.messages.length-1].date!=today">{{contact.messages[contact.messages.length-1].date}}</p>
+                            <p id="last-sms-hour" v-else>{{contact.messages[contact.messages.length-1].hour}}</p>
                         </div>
                     </div>                   
                 </div>

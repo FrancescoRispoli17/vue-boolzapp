@@ -191,7 +191,7 @@ const { createApp } = Vue
         currentIndex:0,
         newsms:null,
         filtro:null,
-        lastDate:null,
+        today:luxon.DateTime.now().day+'/'+luxon.DateTime.now().month+'/'+luxon.DateTime.now().year,
       }
     },
     methods:{
@@ -214,6 +214,7 @@ const { createApp } = Vue
       },
       openChat(idx){
         this.currentIndex=idx;
+        console.log(this.today)
       },
       addMessage(){
         const messageList=this.contacts[this.currentIndex].messages;
@@ -223,13 +224,13 @@ const { createApp } = Vue
         if(sms)
             {
                 const obj={
-                    date:now.date,
+                    date:now.day+'/'+now.month+'/'+now.year,
                     hour:now.hour + ':' + now.minute,
                     message:sms,
                     status:'sent'
                 }
                 const obj2={
-                    date:now.date,
+                    date:now.day+'/'+now.month+'/'+now.year,
                     hour:now.hour + ':' + now.minute,
                     message:'ok',
                     status:'received'
