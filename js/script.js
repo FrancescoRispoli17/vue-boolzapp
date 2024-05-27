@@ -224,13 +224,13 @@ const { createApp } = Vue
         if(sms)
             {
                 const obj={
-                    date:now.day+'/'+now.month+'/'+now.year,
+                    date:this.today,
                     hour:now.hour + ':' + now.minute,
                     message:sms,
                     status:'sent'
                 }
                 const obj2={
-                    date:now.day+'/'+now.month+'/'+now.year,
+                    date:this.today,
                     hour:now.hour + ':' + now.minute,
                     message:'ok',
                     status:'received'
