@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://kit.fontawesome.com/84c04c9e02.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <title>Document</title>
 </head>
 <body id="app">
@@ -48,9 +49,9 @@
             <div class="col" >
                 <header class="p-photo bg-grey flex space">
                     <div class="flex">
-                        <figure><img src="./img/avatar_1.jpg" alt="michele"></figure>
+                        <figure><img :src="contacts[currentIndex].avatar" alt="michele"></figure>
                         <div class="m-left-1 m-top-0_5">
-                            <p>Michele</p>
+                            <p>{{contacts[currentIndex].name}}</p>
                             <p id="last-sign-in">Ultimo accesso oggi alle 16:26</p>
                         </div>
                     </div>
@@ -61,13 +62,14 @@
                     </div>
                 </header>
                 <div id="message-text">
-                    <div v-for="message in contacts[currentIndex].messages" >
+                    <div style="text-align: center;"><p class="date">{{contacts[currentIndex].messages[0].date}}</p></div>
+                    <div v-for="(message, index) in contacts[currentIndex].messages">
                         <div class="message" :class="{me:message.status==='sent'}">
                             <p>{{message.message}}</p>
                             <i class="fa fa-angle-down grey"></i>
-                            <span class="ora">16:30</span>
+                            <span class="ora">{{message.hour}}</span>
                         </div>
-                    </div>
+                    </div>       
                 </div>
                 <div class="bg-panna p-1 flex grey align-center" id="write"> 
                     <i class="fa-regular fa-face-smile mx-1 fs-1 "></i>
@@ -78,7 +80,6 @@
             </div>
         </div>
     </div>
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
