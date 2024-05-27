@@ -28,7 +28,7 @@ const { createApp } = Vue
                       message: 'Tutto fatto!',
                       status: 'received'
                   }
-              ], lastmessage:'',
+              ]             
           },
           {
               name: 'Fabio',
@@ -196,30 +196,21 @@ const { createApp } = Vue
     },
     methods:{
       lastMessage(idxx){
-        // const messages=[];
-        // for(let i=0; i<this.contacts.length;i++){
-        //   let messageLength=this.contacts[i].messages.length;
-        //   messages.push(this.contacts[i].messages[messageLength-1].message)
-        // }
-        // console.log(messages);
-        // const obj={
-        //         date: '10/01/2020 15:51:00',
-        //         message: 'OK!!',
-        //         status: 'received'
-        // }
-        // this.contacts[idxx].messages.push(obj);
-        // let lastsmsarray='';
-        // const messagesL=this.contacts[idxx].messages.length;
-        // const lastsmsL=this.contacts[idxx].messages[messagesL-1].message.length;
-        // const lastsms=this.contacts[idxx].messages[messagesL-1].message;
-        // for(i=0;i<lastsmsL;i++)
-        //   {
-        //       lastsmsarray+=(lastsms[i]);
-        //       if(i===25)
-        //         break;
-        //   }
-        // this.contacts[idxx].lastmessage='aaaaaa'
-        // this.contacts[idxx].lastmessage=lastsmsarray;
+         let lastsmsarray='';
+         const messagesL=this.contacts[idxx].messages.length;
+         const lastsmsL=this.contacts[idxx].messages[messagesL-1].message.length;
+         const lastsms=this.contacts[idxx].messages[messagesL-1].message;
+         for(i=0;i<lastsmsL;i++)
+           {
+               lastsmsarray+=lastsms[i];
+               if(i>25 && lastsms[i]==' '){
+                lastsmsarray+='...';
+                break;
+               }               
+          }
+          return lastsmsarray;
+
+         
       },
       openChat(idx){
         this.currentIndex=idx;

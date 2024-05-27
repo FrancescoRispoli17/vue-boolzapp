@@ -41,7 +41,7 @@
                         <figure><img :src="contact.avatar" alt="contact.name"></figure>
                         <div class=" m-left-1 m-top-0_5">
                             <p>{{contact.name}}</p>
-                            <p id="last-sign-in">{{contact.messages[contact.messages.length-1].message}}</p>
+                            <p id="last-sign-in">{{lastMessage(index)}}</p>
                         </div>
                     </div>                   
                 </div>
