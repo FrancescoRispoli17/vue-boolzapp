@@ -209,12 +209,9 @@ const { createApp } = Vue
                }               
           }
           return lastsmsarray;
-
-         
       },
       openChat(idx){
         this.currentIndex=idx;
-        console.log(this.today)
       },
       addMessage(){
         const messageList=this.contacts[this.currentIndex].messages;
@@ -241,23 +238,41 @@ const { createApp } = Vue
             }
       },
       search(){
+        // CORREZIONE
             const filter=this.filtro.toLowerCase();
-            
-            for(const element in this.contacts){
-                if(!filter)
-                    this.contacts[element].visible=true;
-                for(let i=0;i<filter.length;i++){
-                    if(this.contacts[element].name[i].toLowerCase()!==filter[i]){
-                        this.contacts[element].visible=false;
-                        break;
-                        }
-                        else{
-                            this.contacts[element].visible=true;
-                        }
-                    
+            if(filter){
+                this.contacts=this.contacts.map((contact)=>{
+                    return{
+                        ...contact,
+                        visible:contact.name.toLowerCase().includes(filter),
                     }
-                }
+                });
             }
+            else{
+                this.contacts=this.contacts.map((contact)=>{
+                    return{
+                        ...contact,
+                        visible:true,
+                    }
+                });
+
+            }
+            // CODICE FATTO DA ME           
+            // for(const element in this.contacts){
+            //     if(!filter)
+            //         this.contacts[element].visible=true;
+            //     for(let i=0;i<filter.length;i++){
+            //         if(this.contacts[element].name[i].toLowerCase()!==filter[i]){
+            //             this.contacts[element].visible=false;
+            //             break;
+            //             }
+            //             else{
+            //                 this.contacts[element].visible=true;
+            //             }
+                    
+            //         }
+            //     }
+            },
         }
 
     

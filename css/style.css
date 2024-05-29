@@ -94,6 +94,16 @@ figure img{
     position: relative;
     font-size: 15px;
 }
+.info-delete{
+    background-color: white;
+    color: gray;padding: 1rem 0;
+    text-align: center;
+    width:150px ;
+    position: absolute;
+    right: 0;
+    top: 29px;
+    z-index: 1;
+}
 .message p{
     margin-right: 1rem;
     word-wrap: break-word
@@ -107,7 +117,7 @@ figure img{
 }
 .fa-angle-down{
     position: absolute;
-    top: 5px;
+    top: 13px;
     right: 5px;
 }
 .me{
@@ -145,6 +155,9 @@ figure img{
 }
 .mx-1{
     margin: 0 1rem;
+}
+.mt-1{
+    margin-top: 1rem;
 }
 
 
